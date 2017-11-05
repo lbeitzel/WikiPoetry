@@ -13,7 +13,7 @@ public class ArticleParser {
 	}
 	
 	public String removeHeader() {
-		return _inputFile.substring(_inputFile.indexOf("\"extract\"") + 11, _inputFile.indexOf("= Notes"));
+		return _inputFile.substring(_inputFile.indexOf("\"extract\"") + 11, _inputFile.indexOf("= References"));
 	}
 	
 	public ArrayList<String> betterSplit(String splitPoint, ArrayList<String> inPhrases) {

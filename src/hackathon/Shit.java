@@ -9,8 +9,7 @@ import java.util.ArrayList;
 public class Shit {
 	public static void main(String[] args) {
 		try {
-			System.out.println("start");
-			String test = readToString("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&explaintext=&titles=Donald%20Trump");
+			String test = readToString("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&explaintext=&titles=Steve%20Jobs");
 
 			ArrayList<String> cleanedOutput = clean(test);
 
@@ -20,9 +19,13 @@ public class Shit {
 				//System.out.println(cleanedOutput.get(i));
 				phraseList.add(new Phrase(cleanedOutput.get(i)));
 			}
-			System.out.println("done");
 			
 			Haiku h = new Haiku(phraseList);
+			h.generateHaiku();
+			h.generateHaiku();
+			h.generateHaiku();
+			h.generateHaiku();
+			h.generateHaiku();
 			
 
 		} catch (IOException e) {

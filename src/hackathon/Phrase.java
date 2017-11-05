@@ -7,28 +7,28 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class Phrase {
-	static String _phrase;
+	String _phrase;
 	String _lastWord;
 	ArrayList<String> _rhymes;
-	static int _syllables;
+	int _syllables;
 	
 	Phrase(String phrase){
 		_phrase = phrase;
-		_lastWord = "";
-		for(int i = _phrase.length() - 1; i >= 0 && (_phrase.charAt(i) != ' '); i--){
-			_lastWord += _phrase.charAt(i);
-		}
-		_lastWord = new StringBuilder(_lastWord).reverse().toString();
-		try {
-			String rawRhymeOutput = readToString(_lastWord);
-			_rhymes = parseRhymes(rawRhymeOutput);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		_lastWord = "";
+//		for(int i = _phrase.length() - 1; i >= 0 && (_phrase.charAt(i) != ' '); i--){
+//			_lastWord += _phrase.charAt(i);
+//		}
+//		_lastWord = new StringBuilder(_lastWord).reverse().toString();
+//		try {
+//			String rawRhymeOutput = readToString(_lastWord);
+//			_rhymes = parseRhymes(rawRhymeOutput);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		//getSyllables(_phrase);
 	}
 	
-	public static String readToString(String word) throws IOException {
+	public String readToString(String word) throws IOException {
 		String rawArticle = "";
 		URL wikiurl = new URL("https://api.datamuse.com/words?rel_rhy=" + word);
 	    BufferedReader in = new BufferedReader(
@@ -39,7 +39,7 @@ public class Phrase {
 	    in.close();
 	    return rawArticle;
 	}
-	public static String readSyllablesString(String word) throws IOException {
+	public String readSyllablesString(String word) throws IOException {
 		String rawSyllableData = "";
 		URL wikiurl = new URL("http://api.datamuse.com/words?sp=" + word + "&qe=sp&md=s&max=1");
 	    BufferedReader in = new BufferedReader(
@@ -51,7 +51,7 @@ public class Phrase {
 	    return rawSyllableData;
 	}
 	
-	public static ArrayList<String> parseRhymes(String rawText){
+	public ArrayList<String> parseRhymes(String rawText){
 		ArrayList<String> retVal = new ArrayList<String>();
 		for(int i = 0; i < rawText.length() - 6; i++){
 			String sub = rawText.substring(i, i+7);
@@ -68,7 +68,7 @@ public class Phrase {
 		return retVal;
 		
 	}
-	public static void getSyllables(){
+	public void getSyllables(){
 		int syllables = 0;
 		String[] words = _phrase.split(" ");
 		String[] rawText = new String[words.length];
