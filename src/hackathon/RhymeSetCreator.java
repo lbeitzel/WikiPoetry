@@ -3,6 +3,8 @@ package hackathon;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+//
+
 public class RhymeSetCreator implements Comparator{
 	ArrayList<ArrayList<Phrase>> _rhymeSets;
 	ArrayList<Phrase> _allPhrases;
