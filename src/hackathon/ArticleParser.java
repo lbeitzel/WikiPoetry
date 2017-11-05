@@ -57,6 +57,20 @@ public class ArticleParser {
 		return outPhrases;
 	}
 	
+	//make remove endingSpaces
+		public ArrayList<String> removeEndingBs(ArrayList<String> inPhrases) {
+			ArrayList<String> outPhrases = new ArrayList<String>();
+			for(int i = 0; i < inPhrases.size(); i++) {
+				if (inPhrases.get(i).charAt(inPhrases.get(i).length()-1) == 'b') {
+					outPhrases.add(inPhrases.get(i).substring(0,inPhrases.get(i).length()-1));
+				} 
+				else {
+					outPhrases.add(inPhrases.get(i));
+				}
+			}
+			return outPhrases;
+		}
+	
 	
 	
 	public ArrayList<String> removeLeadingNewLines(ArrayList<String> inPhrases) {
@@ -69,6 +83,34 @@ public class ArticleParser {
 				char c = inPhrases.get(i).charAt(j);
 				char d = inPhrases.get(i).charAt(j + 1);
 				if (c == '\\' && d == 'n') {
+					j++;
+				}
+				else {
+					phrase += c;
+
+					if (j == inPhrases.get(i).length() - 2) {
+						phrase += d;
+					}
+				}
+			}			
+			if(phrase.length() >= MIN_PHRASE_LENGTH) {
+				outPhrases.add(phrase);
+			}
+			
+		}
+		return outPhrases;
+	}
+	
+	public ArrayList<String> removeUnicodeUs(ArrayList<String> inPhrases) {
+		ArrayList<String> outPhrases = new ArrayList<String>();
+
+		for (int i = 0; i < inPhrases.size(); i++) {
+			String phrase = "";
+			
+			for (int j = 0; j < inPhrases.get(i).length() - 1; j++) {
+				char c = inPhrases.get(i).charAt(j);
+				char d = inPhrases.get(i).charAt(j + 1);
+				if (c == '\\' && d == 'u') {
 					j++;
 				}
 				else {

@@ -16,16 +16,16 @@ public class Shit {
 			ArrayList<Phrase> phraseList = new ArrayList<Phrase>();
 			// print the outputs
 			for (int i = 0; i < cleanedOutput.size(); i++) {
-				//System.out.println(cleanedOutput.get(i));
+				System.out.println(cleanedOutput.get(i));
 				phraseList.add(new Phrase(cleanedOutput.get(i)));
 			}
 			
-			Haiku h = new Haiku(phraseList);
-			h.generateHaiku();
-			h.generateHaiku();
-			h.generateHaiku();
-			h.generateHaiku();
-			h.generateHaiku();
+//			Haiku h = new Haiku(phraseList);
+//			h.generateHaiku();
+//			h.generateHaiku();
+//			h.generateHaiku();
+//			h.generateHaiku();
+//			h.generateHaiku();
 			
 
 		} catch (IOException e) {
@@ -71,17 +71,24 @@ public class Shit {
 		output = ap.betterSplit(" u ", output);
 
 		output = ap.betterSplit(" s ", output);
+		
 
 		// cleans the \n's
 		output = ap.removeLeadingNewLines(output);
+		// cleans the unicode u's
+		output = ap.removeUnicodeUs(output);
 		// cleans the leading spaces of the sentences
 		output = ap.removeLeadingSpaces(output);
 
 		// cleans the other undesired characters from the sentences
 		output = ap.removeUndesiredCharacters(output);
+		
 		// cleans the leading spaces of the sentences
 		output = ap.removeLeadingSpaces(output);
 
+		// cleans up ending bs
+		output = ap.removeEndingBs(output);
+		
 		// cleans the endingSpaces
 		output = ap.removeEndingSpaces(output);
 
