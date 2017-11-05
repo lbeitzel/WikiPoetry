@@ -30,14 +30,19 @@ public class Haiku {
 			}
 		}
 		index ++;
-		System.out.println("=Haiku=");
-		//Prints first 5 line
-		System.out.println(syb5phrases.get(0)._phrase);
-		//Prints first 7 line
-		System.out.println(syb7phrases.get(0)._phrase);
-		//Prints first 5 line
-		System.out.println(syb5phrases.get(1)._phrase);
-		System.out.println();
+		if(syb5phrases.size() > 1 && syb7phrases.size() > 0) {
+			System.out.println("=Haiku=");
+			//Prints first 5 line
+			System.out.println(syb5phrases.get(0)._phrase);
+			//Prints first 7 line
+			System.out.println(syb7phrases.get(0)._phrase);
+			//Prints first 5 line
+			System.out.println(syb5phrases.get(1)._phrase);
+			System.out.println();
+		}
+		else {
+			System.out.println("No More Haikus");
+		}
 	}
 	
 	
