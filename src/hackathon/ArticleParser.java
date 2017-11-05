@@ -7,6 +7,7 @@ public class ArticleParser {
 	String _inputFile;
 	
 	final int MIN_PHRASE_LENGTH = 15;
+	final int MAX_PHRASE_LENGTH = 75;
 	
 	public ArticleParser(String inputTextFile) {
 		_inputFile = inputTextFile;
@@ -22,7 +23,7 @@ public class ArticleParser {
 		for(int i = 0; i < inPhrases.size(); i++) {
 			array = inPhrases.get(i).split(splitPoint);
 			for(int j = 0; j < array.length; j++) {
-				if(array[j].length() >= MIN_PHRASE_LENGTH) {
+				if((array[j].length() >= MIN_PHRASE_LENGTH) && (array[j].length() <= MAX_PHRASE_LENGTH)) {
 					outPhrases.add(array[j]);
 				}
 			}
@@ -93,7 +94,7 @@ public class ArticleParser {
 					}
 				}
 			}			
-			if(phrase.length() >= MIN_PHRASE_LENGTH) {
+			if((phrase.length() >= MIN_PHRASE_LENGTH) && (phrase.length() <= MAX_PHRASE_LENGTH)) {
 				outPhrases.add(phrase);
 			}
 			
@@ -121,7 +122,7 @@ public class ArticleParser {
 					}
 				}
 			}			
-			if(phrase.length() >= MIN_PHRASE_LENGTH) {
+			if((phrase.length() >= MIN_PHRASE_LENGTH) && (phrase.length() <= MAX_PHRASE_LENGTH)) {
 				outPhrases.add(phrase);
 			}
 			
@@ -149,7 +150,7 @@ public class ArticleParser {
 				//else don't add that character to the String outPhrase
 			}
 			//adds the cleaned phrase to the list of phrases
-			if(outPhrase.length() >= MIN_PHRASE_LENGTH) {
+			if((outPhrase.length() >= MIN_PHRASE_LENGTH) && (outPhrase.length() <= MAX_PHRASE_LENGTH)) {
 				outPhrases.add(outPhrase);
 			}
 		}

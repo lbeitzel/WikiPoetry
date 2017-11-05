@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Shit {
 	public static void main(String[] args) {
@@ -20,6 +21,15 @@ public class Shit {
 				phraseList.add(new Phrase(cleanedOutput.get(i)));
 			}
 			
+			RhymeSetCreator r = new RhymeSetCreator(phraseList);
+			r.generateRhymeSets();
+			for(int i = 0; i<r._rhymeSets.size(); i++) {
+				ArrayList<Phrase> h = r._rhymeSets.get(i);
+				for(Phrase p : h) {
+					System.out.println(p._phrase);
+				}
+				System.out.println("--------------");
+			}
 //			Haiku h = new Haiku(phraseList);
 //			h.generateHaiku();
 //			h.generateHaiku();
