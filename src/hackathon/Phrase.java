@@ -7,7 +7,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class Phrase {
-	String _phrase;
+	static String _phrase;
 	String _lastWord;
 	ArrayList<String> _rhymes;
 	static int _syllables;
@@ -68,9 +68,9 @@ public class Phrase {
 		return retVal;
 		
 	}
-	public static void getSyllables(String phrase){
+	public static void getSyllables(){
 		int syllables = 0;
-		String[] words = phrase.split(" ");
+		String[] words = _phrase.split(" ");
 		String[] rawText = new String[words.length];
 		for(int i = 0; i < words.length; i++){
 			try {
