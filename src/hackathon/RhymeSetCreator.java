@@ -53,7 +53,7 @@ public class RhymeSetCreator implements Comparator{
 			if(repeat) {
 				if(repeatRhymes.size() > _rhymeSets.get(i).size()) {
 					cleanedSet.add(repeatRhymes);
-					cleanedSet.remove(i);
+					cleanedSet.remove(cleanedSet.size()-2);
 				}
 			}
 			else {
