@@ -24,6 +24,10 @@ public class Driver {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(wikiPageFile.length() < 8000) {
+			System.out.println("Too Small or Bad Request!");
+			System.exit(0);
+		}
 		// Cleans the file and converts it into a phraseList
 		ArrayList<String> cleanedOutput = clean(wikiPageFile);
 
@@ -66,6 +70,7 @@ public class Driver {
 			else {
 				System.out.println("Please enter a valid response");
 			}
+			System.out.println();
 		}
 
 	}

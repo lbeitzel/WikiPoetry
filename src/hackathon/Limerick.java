@@ -23,6 +23,7 @@ public class Limerick {
 		else{
 			if (_index  < _rhymeSets.size() - 1){
 				System.out.println("=Limerick=");
+				System.out.println();
 				System.out.println("There once was a man named " + _personName);
 				System.out.println(_rhymeSets.get(_index).get(0)._phrase);
 				System.out.println(_rhymeSets.get(_index+1).get(0)._phrase);

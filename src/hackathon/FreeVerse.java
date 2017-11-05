@@ -15,6 +15,7 @@ public class FreeVerse {
 
 	public void generateFreeVerse() {
 		System.out.println("=Free Verse=");
+		System.out.println();
 		for (int i = 0; i < _rhymeSets.size(); i++) {
 			System.out.println(_rhymeSets.get(i).get(0)._phrase);
 			System.out.println(_rhymeSets.get(i).get(1)._phrase);

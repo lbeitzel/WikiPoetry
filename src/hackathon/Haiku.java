@@ -32,6 +32,7 @@ public class Haiku {
 		index ++;
 		if(syb5phrases.size() > 1 && syb7phrases.size() > 0) {
 			System.out.println("=Haiku=");
+			System.out.println();
 			//Prints first 5 line
 			System.out.println(syb5phrases.get(0)._phrase);
 			//Prints first 7 line
