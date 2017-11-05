@@ -14,18 +14,6 @@ public class Phrase {
 	
 	Phrase(String phrase){
 		_phrase = phrase;
-//		_lastWord = "";
-//		for(int i = _phrase.length() - 1; i >= 0 && (_phrase.charAt(i) != ' '); i--){
-//			_lastWord += _phrase.charAt(i);
-//		}
-//		_lastWord = new StringBuilder(_lastWord).reverse().toString();
-//		try {
-//			String rawRhymeOutput = readToString(_lastWord);
-//			_rhymes = parseRhymes(rawRhymeOutput);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-		//getSyllables(_phrase);
 	}
 	
 	public String readToString(String word) throws IOException {
@@ -89,6 +77,20 @@ public class Phrase {
 		}
 		//System.out.println(syllables);
 		_syllables = syllables;
+	}
+
+	public void generateRhymes() {
+		_lastWord = "";
+		for(int i = _phrase.length() - 1; i >= 0 && (_phrase.charAt(i) != ' '); i--){
+			_lastWord += _phrase.charAt(i);
+		}
+		_lastWord = new StringBuilder(_lastWord).reverse().toString();
+		try {
+			String rawRhymeOutput = readToString(_lastWord);
+			_rhymes = parseRhymes(rawRhymeOutput);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
 	}
 }
 
